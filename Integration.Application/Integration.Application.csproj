@@ -1,3 +1,4 @@
+<!--应用层-->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -5,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Core" Version="5.3.1" />

@@ -1,0 +1,18 @@
+﻿{
+  "GlobalConfiguration": {
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 16001
+        }
+      ],
+      "UpstreamPathTemplate": "/UCmember/{url}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT", "Patch" ]
+    }
+  ]
+}

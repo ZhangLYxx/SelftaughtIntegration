@@ -1,25 +1,47 @@
+using Integration.HttpApi.Hosting;
+using Microsoft.OpenApi.Models;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+using Integration.JWT;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    config.AddJsonFile("ocelot.json", true, true);
+})
+.UseDefaultServiceProvider(providerOptions =>
+{
+    providerOptions.ValidateOnBuild = false;
+});
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1",
+        new OpenApiInfo { Title = "Gateway API", Version = "v1", Description = "# gateway api..." });
+});
+
+//不使用consul服务，若使用即加一个Servcices.AddConsul
+builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseDeveloperExceptionPage();
+var swaggers = builder.Configuration.GetSection("Swaggers").Get<SwaggerRouteInfo[]>();
+if (swaggers != null)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        foreach (var swagger in swaggers)
+        {
+            c.SwaggerEndpoint(swagger.Url, swagger.Title);
+        }
+    });
 }
-
-app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseAuthorization();
+app.MapSwagger();
+app.UseTokenAuth();
 
-app.MapControllers();
-
+app.UseOcelot().GetAwaiter();
 app.Run();

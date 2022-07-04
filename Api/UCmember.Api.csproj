@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dto\UCmember.Dto.csproj" />
+    <ProjectReference Include="..\Entity\UCmember.Entity.csproj" />
+    <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
+    <ProjectReference Include="..\Integration.Swagger\Integration.Swagger.csproj" />
+  </ItemGroup>
+
+</Project>

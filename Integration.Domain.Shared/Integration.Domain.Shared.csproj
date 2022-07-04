@@ -1,3 +1,4 @@
+<!--领域公共层-->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
