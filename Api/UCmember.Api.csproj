@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -18,6 +19,7 @@
     <ProjectReference Include="..\Entity\UCmember.Entity.csproj" />
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
     <ProjectReference Include="..\Integration.Swagger\Integration.Swagger.csproj" />
+    <ProjectReference Include="..\Integration.ToolKits\Integration.ToolKits.csproj" />
   </ItemGroup>
 
 </Project>

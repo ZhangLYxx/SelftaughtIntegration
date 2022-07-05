@@ -3,11 +3,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Integration.Swagger;
 using Integration.JWT;
 using Integration.Service.StartUp;
-
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using Integration.ToolKits;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+    options.SerializerSettings.NullValueHandling = NullValueHandling.Include;
+    options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
+    options.SerializerSettings.Converters.Add(new LongConverter());
+}); ;
 builder.Services.AddEndpointsApiExplorer();
 var xmlnames = new string[] { "UCmember.Api.xml", "UCmember.Entity.xml", "UCmember.Dto.xml" };
 builder.Services.AddSwaggerConfiguration(xmlnames, "UCmember");
