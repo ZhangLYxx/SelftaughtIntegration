@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Dto\UCmember.Dto.csproj" />
     <ProjectReference Include="..\Entity\UCmember.Entity.csproj" />
+    <ProjectReference Include="..\Integration.EntityFrameworkCore.DbMigrations\Integration.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
     <ProjectReference Include="..\Integration.Swagger\Integration.Swagger.csproj" />
     <ProjectReference Include="..\Integration.ToolKits\Integration.ToolKits.csproj" />

@@ -1,4 +1,5 @@
-﻿using Integration.JWT;
+﻿using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
+using Integration.JWT;
 using Integration.Service.StartUp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,18 @@ namespace UCmember.Api.Controllers
     [ApiController]  
     public class AccountController : ControllerBase
     {
-        [HttpGet]
-        public async Task<string> Login([FromServices] IIdentityParser identityParser)
+        private readonly MigrationsDbContext _dbContext;
+
+        public AccountController(MigrationsDbContext dbContext)
         {
+            _dbContext = dbContext;
+        }
+
+        [HttpGet]
+        public async Task<string> Login([FromQuery]  [FromServices] IIdentityParser identityParser)
+        {
+           //var row=_dbContex
+
             var roles = new MemberSession
             {
                 UserId = 1l,
