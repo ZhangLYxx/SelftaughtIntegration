@@ -6,4 +6,4 @@
 ### 接口文档测试工具：Swagger
 ### 权限：Policy
 ### 网关：Ocelot
-### 
+### 消息队列：Kafka(代码简单，难的是配置Kafka以及正常启动zookeeper，kafka；可视化工具用ZooInspector)
