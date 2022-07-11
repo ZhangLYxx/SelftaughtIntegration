@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Cap" Version="1.0.1" />
+    <PackageReference Include="DotNetCore.CAP.Kafka" Version="6.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
@@ -19,6 +21,7 @@
     <ProjectReference Include="..\Entity\UCmember.Entity.csproj" />
     <ProjectReference Include="..\Integration.EntityFrameworkCore.DbMigrations\Integration.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
+    <ProjectReference Include="..\Integration.Kafka\Integration.Kafka.csproj" />
     <ProjectReference Include="..\Integration.Swagger\Integration.Swagger.csproj" />
     <ProjectReference Include="..\Integration.ToolKits\Integration.ToolKits.csproj" />
   </ItemGroup>

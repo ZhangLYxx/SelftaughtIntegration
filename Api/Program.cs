@@ -23,7 +23,7 @@ DependencyInjection.AddDependency(builder.Services);
 DependencyInjection.AddPolicy(builder.Services);
 builder.Services.AddIntegrationAuth();
 builder.Services.AddHealthChecks();
-
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 if (!app.Environment.IsProduction())

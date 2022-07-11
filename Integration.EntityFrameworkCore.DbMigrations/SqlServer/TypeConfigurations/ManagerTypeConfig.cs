@@ -8,6 +8,6 @@ namespace Integration.EntityFrameworkCore.DbMigrations.SqlServer.TypeConfigurati
 {
     public class ManagerTypeConfig
     {
-        public override 
+        //public override 
     }
 }

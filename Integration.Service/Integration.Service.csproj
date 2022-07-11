@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
+    <ProjectReference Include="..\Integration.Kafka\Integration.Kafka.csproj" />
   </ItemGroup>
 
 </Project>

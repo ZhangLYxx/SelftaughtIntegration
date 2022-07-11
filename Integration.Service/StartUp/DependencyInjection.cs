@@ -1,4 +1,5 @@
 ﻿using Integration.JWT;
+using Integration.Kafka;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace Integration.Service.StartUp
             //services.AddScoped<DbConnection>(_ => new SqlConnection(configuration.GetConnectionString("SqlServerConnection")));
             //services.AddScoped<IMemberLiked, MemberLikeds>();
             //services.AddScoped<IWxDataAccess, WxDataAccess>();
+            services.AddTransient<IKafkaService, KafkaService>();
             services.AddScoped<IIdentityParser, JwtIdentityParser>();
             //services.AddScoped<IWechatClient, WechatClient>();
             //services.AddScoped<IEventPublisher, InProcessEventPublisher>(); ;

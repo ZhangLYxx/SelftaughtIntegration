@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Api.Controllers
 {
     /// <summary>
-    /// 
+    /// 会员
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
