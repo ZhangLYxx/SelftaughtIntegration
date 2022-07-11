@@ -1,0 +1,47 @@
+！！！！！！！！注意配置Java环境
+以下内容仅我自己能走通，内容很浅显甚至于有问题，如果日后有突破就会更新此文档
+Kafka安装地址：
+https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.0/kafka_2.13-3.2.0.tgz
+windows10系统自行查找怎么解压tgz（tar -xyvf 路径）找到这种例子就是对的
+
+解压后修改部分：
+config\zookeeper.properties
+(dataDir="绝对路径") ex:dataDir=E:\kafka_2.13-3.2.0\kafka_2.13-3.2.0data
+
+config\server.properties
+(broker.id="随意数") ex:broker.id=2
+(listeners=PLAINTEXT://localhost:"9092附近的，应该附近的四位数都可以") ex:listeners=PLAINTEXT://localhost:9096
+(advertised.listeners=PLAINTEXT://localhost:"9092附近的，应该附近的四位数都可以,与listeners端口号一致") ex:advertised.listeners=PLAINTEXT://localhost:9096
+(log.dirs=log.dirs) ex:log.dirs=E:\kafka_2.13-3.2.0\kafka_2.13-3.2.0kafka-logs
+(num.partitions="随意数") ex:num.partitions=3
+(zookeeper.connect=IP:2181) ex:IP去cmd 命令ipconfig输出ipv4就是
+(zookeeper.connection.timeout.ms="随意数") ex:zookeeper.connection.timeout.ms=60000
+
+
+启动Kafka：（按顺序来）
+启动zookeeper:
+bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+启动kafka:
+bin\windows\kafka-server-start.bat config\server.properties
+
+命令验证:
+bin\kafka-topics.sh --bootstrap-server localhost:9096 --describe --topic pana
+
+创建topic:
+bin\windows\kafka-topics.bat --create --topic "topicname" --bootstrap-server localhost:9096
+
+生产信息:
+bin\windows\kafka-console-producer.bat --broker-list localhost:9096 --topic"topicname"
+
+消费信息:
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9096 --topic "topicname" --from-beginning
+
+查看进程：
+jps
+
+安装可视化：
+ZooInspector安装地址：
+https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip
+
+解压后在build路径下cmd 命令java -jar zookeeper-dev-ZooInspector.jar即可打开
