@@ -24,6 +24,8 @@ DependencyInjection.AddPolicy(builder.Services);
 builder.Services.AddIntegrationAuth();
 builder.Services.AddHealthChecks();
 builder.Services.AddHttpContextAccessor();
+
+
 var app = builder.Build();
 
 if (!app.Environment.IsProduction())
@@ -45,8 +47,6 @@ app.UseGatewayAuthHeader();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-//app.UseTokenAuth();
 
 app.UseAuthSession();
 

@@ -1,9 +1,6 @@
-﻿using Dto;
-using Entity;
-using Integration.JWT;
+﻿using Integration.Application.Contracts.SecondHandCar;
 using Integration.Service.StartUp;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -16,17 +13,23 @@ namespace Api.Controllers
     [Authorize]
     public class MemberController : ControllerBase
     {
+        private readonly IMember _memberservice;
+
+        public MemberController(IMember memberservice)
+        {
+            _memberservice = memberservice;
+        }
+
+
         /// <summary>
         /// 登录
         /// </summary>
         /// <returns></returns>
         [HttpGet]
         [Authorize(PermissionConstantKey.ExaminePolicy)]
-        public  string Login()
+        public  async Task Login()
         {
-            var session = HttpContext.GetMemberSession();
-
-            return $"{session.UserId}------{session.UserName}------{session.Roles[0]}";
+            await _memberservice.GetAsync();
         }
     }
 }

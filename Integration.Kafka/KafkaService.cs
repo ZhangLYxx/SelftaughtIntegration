@@ -32,7 +32,7 @@ namespace Integration.Kafka
             var config = new ConsumerConfig
             {
                 BootstrapServers = "localhost:9096",
-                GroupId = "foo",
+                GroupId = "foos",
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 

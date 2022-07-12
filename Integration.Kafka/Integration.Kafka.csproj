@@ -1,3 +1,4 @@
+<!--KAFKA发布消息订阅-->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>

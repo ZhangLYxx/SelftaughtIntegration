@@ -12,4 +12,8 @@
     <Optimize>False</Optimize>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Member\" />
+  </ItemGroup>
+
 </Project>

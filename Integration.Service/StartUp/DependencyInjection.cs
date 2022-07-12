@@ -1,4 +1,6 @@
-﻿using Integration.JWT;
+﻿using Integration.Application.Contracts.SecondHandCar;
+using Integration.Application.SecondHandCar;
+using Integration.JWT;
 using Integration.Kafka;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -26,7 +28,7 @@ namespace Integration.Service.StartUp
         {
             //services.AddScoped<DbConnection>(_ => new SqlConnection(configuration.GetConnectionString("SqlServerConnection")));
             //services.AddScoped<IMemberLiked, MemberLikeds>();
-            //services.AddScoped<IWxDataAccess, WxDataAccess>();
+            services.AddScoped<IMember, MemberApplication>();
             services.AddTransient<IKafkaService, KafkaService>();
             services.AddScoped<IIdentityParser, JwtIdentityParser>();
             //services.AddScoped<IWechatClient, WechatClient>();

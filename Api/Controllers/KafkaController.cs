@@ -1,9 +1,5 @@
-﻿using Confluent.Kafka;
-using DotNetCore.CAP;
-using Integration.Kafka;
-using Microsoft.AspNetCore.Http;
+﻿using Integration.Kafka;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
 using UCmember.Dto.Kafka;
 
 namespace UCmember.Api.Controllers
@@ -22,6 +18,16 @@ namespace UCmember.Api.Controllers
         }
 
         #region 生产者
+
+        [HttpGet("[action]")]
+        public int G()
+        {
+            var c = new string[] { "ccc", "ssssss", "vvv" };
+            var s = c.Count(v => v.Contains("ccc"));
+            return s;
+        }
+
+
         [HttpPost]
         public async Task<string> Production([FromBody] ProducerDto dto)
         {
