@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
@@ -19,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Integration.Application.Contracts\Integration.Application.Contracts.csproj" />
     <ProjectReference Include="..\Integration.Application\Integration.Application.csproj" />
+    <ProjectReference Include="..\Integration.BackgroundJobs\Integration.BackgroundJobs.csproj" />
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
     <ProjectReference Include="..\Integration.Kafka\Integration.Kafka.csproj" />
   </ItemGroup>

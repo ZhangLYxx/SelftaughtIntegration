@@ -1,7 +1,7 @@
 ﻿using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
 using Integration.JWT;
 using Integration.Service.StartUp;
-using Microsoft.AspNetCore.Http;
+using Integration.ToolKits;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UCmember.Api.Controllers
@@ -21,20 +21,17 @@ namespace UCmember.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<string> Login([FromQuery]  [FromServices] IIdentityParser identityParser)
+        public ApiResult<string> Login([FromServices] IIdentityParser identityParser)
         {
-           //var row=_dbContex
-
             var roles = new MemberSession
             {
-                UserId = 1l,
+                UserId = 1L,
                 UserName = "张政",
                 Roles = new [] { PermissionConstantKey.ExaminePolicy }
             };
 
             var token = identityParser.Parse(roles);
-            return $"Bearer {token}";
+            return ApiResult.Ok($"Bearer {token}");
         }
-
     }
 }

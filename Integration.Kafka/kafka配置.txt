@@ -17,7 +17,7 @@ config\server.properties
 (advertised.listeners=PLAINTEXT://localhost:"9092附近的，应该附近的四位数都可以,与listeners端口号一致") ex:advertised.listeners=PLAINTEXT://localhost:9096
 (log.dirs="绝对路径") ex:log.dirs=E:\kafka_2.13-3.2.0\kafka_2.13-3.2.0kafka-logs
 (num.partitions="随意数") ex:num.partitions=3
-(zookeeper.connect=IP:2181) ex:IP去cmd 命令ipconfig输出ipv4就是
+(zookeeper.connect=localhost:2181) ex:
 (zookeeper.connection.timeout.ms="随意数") ex:zookeeper.connection.timeout.ms=60000
 
 

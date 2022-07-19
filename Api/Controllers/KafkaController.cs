@@ -18,25 +18,26 @@ namespace UCmember.Api.Controllers
         }
 
         #region 生产者
-
-        [HttpGet("[action]")]
-        public int G()
-        {
-            var c = new string[] { "ccc", "ssssss", "vvv" };
-            var s = c.Count(v => v.Contains("ccc"));
-            return s;
-        }
-
-
+        /// <summary>
+        /// 生产者
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<string> Production([FromBody] ProducerDto dto)
         {
             await _kafkaService.PublishAsync(dto.TopicName, dto.Message);
+            _logger.LogInformation($"成功");
             return $"生成topic:{dto.TopicName},message:{dto.Message}成功";
         }
         #endregion
 
         #region 消费者
+        /// <summary>
+        /// 消费者
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         [HttpGet]
         public Task<SubacribeData> Consumption([FromQuery] ConsumptionQueryDto dto)
         {

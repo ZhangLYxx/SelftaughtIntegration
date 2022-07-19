@@ -11,11 +11,11 @@ namespace Integration.Application.SecondHandCar
 {
     public class MemberApplication : IMember
     {
-        //private readonly IMediator _mediator;
-        //public MemberApplication(IMediator mediator)
-        //{
-        //    _mediator = mediator;
-        //}
+        private readonly IMediator _mediator;
+        public MemberApplication(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
         public Task GetAsync()
         {
@@ -23,6 +23,7 @@ namespace Integration.Application.SecondHandCar
             {
                 Name = "测试"
             };
+             _mediator.Publish(commond);
             return Task.CompletedTask;
         }
     }

@@ -1,7 +1,10 @@
 ﻿using Integration.Application.Contracts.SecondHandCar;
 using Integration.Application.SecondHandCar;
+using Integration.BackgroundJobs.Quartz;
 using Integration.JWT;
 using Integration.Kafka;
+using Integration.MediatR;
+using MediatR;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,6 +30,8 @@ namespace Integration.Service.StartUp
         /// <param name="configuration"></param>
         public static void AddDependency(IServiceCollection services)
         {
+            services.AddMediatR(typeof(DependencyInjection).GetTypeInfo().Assembly);
+            //services.AddQuartz(typeof(QuartzJob));
             //services.AddScoped<DbConnection>(_ => new SqlConnection(configuration.GetConnectionString("SqlServerConnection")));
             //services.AddScoped<IMemberLiked, MemberLikeds>();
             services.AddScoped<IMember, MemberApplication>();

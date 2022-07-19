@@ -1,11 +1,11 @@
-using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.DependencyInjection;
-using Integration.Swagger;
+using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
 using Integration.JWT;
 using Integration.Service.StartUp;
-using Newtonsoft.Json.Serialization;
-using Newtonsoft.Json;
+using Integration.Swagger;
 using Integration.ToolKits;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +19,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddEndpointsApiExplorer();
 var xmlnames = new string[] { "UCmember.Api.xml", "UCmember.Entity.xml", "UCmember.Dto.xml" };
 builder.Services.AddSwaggerConfiguration(xmlnames, "UCmember");
+builder.Services.AddDbContext<MigrationsDbContext>(option =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
 DependencyInjection.AddDependency(builder.Services);
 DependencyInjection.AddPolicy(builder.Services);
 builder.Services.AddIntegrationAuth();

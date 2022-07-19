@@ -58,7 +58,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.JWT", "Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Kafka", "Integration.Kafka\Integration.Kafka.csproj", "{20D57CF2-0BC8-484A-9E54-D6F162A83602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.MediatR", "Integration.MediatR\Integration.MediatR.csproj", "{184E033C-38E2-4430-800E-5023C715FC19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.MediatR", "Integration.MediatR\Integration.MediatR.csproj", "{184E033C-38E2-4430-800E-5023C715FC19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Items", "Console Items", "{3959A439-01CA-460E-86BF-0A7432AC6AE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

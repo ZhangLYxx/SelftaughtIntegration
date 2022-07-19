@@ -27,9 +27,10 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize(PermissionConstantKey.ExaminePolicy)]
-        public  async Task Login()
+        public  async Task<string> Login()
         {
             await _memberservice.GetAsync();
+            return "1";
         }
     }
 }
