@@ -9,3 +9,4 @@
 ### 消息队列：Kafka(代码简单，难的是配置Kafka以及正常启动zookeeper，kafka；可视化工具用ZooInspector，后期专门写一个文档放在项目里”kafka配置.txt“)
 ### 后台定时任务：Quartz
 ### 中介者：Mediatr
+### 缓存：Redis
