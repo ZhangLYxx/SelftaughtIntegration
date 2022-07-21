@@ -3,7 +3,7 @@ using Integration.Service.StartUp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Api.Controllers
+namespace UCmember.Api.Controllers
 {
     /// <summary>
     /// 会员

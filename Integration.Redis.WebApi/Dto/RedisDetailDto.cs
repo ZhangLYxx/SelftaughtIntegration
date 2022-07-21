@@ -1,18 +1,8 @@
-﻿using Integration.Service.Sql;
-using System;
-namespace Entity
+﻿namespace Integration.Redis.WebApi.Dto
 {
-    /// <summary>
-    /// 人员
-    /// </summary>
-    public class Member: AuditEntity
+    public class RedisDetailDto
     {
-
-        /// <summary>
-        /// 姓名
-        /// </summary>
         public string Name { get; set; }
-
         /// <summary>
         /// 年龄
         /// </summary>
@@ -27,6 +17,5 @@ namespace Entity
         /// 手机号
         /// </summary>
         public string PhoneNumber { get; set; }
-
     }
 }
