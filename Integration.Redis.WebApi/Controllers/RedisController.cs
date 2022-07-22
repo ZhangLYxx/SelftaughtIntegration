@@ -129,10 +129,13 @@ namespace Integration.Redis.WebApi.Controllers
                     if (!string.IsNullOrWhiteSpace(info))
                     {
                         result.Value = info;
-                        var isExpireSuccess = Link(2).Expire(key, tn);
-                        if (!isExpireSuccess)
+                        if (tn != null)
                         {
-                            result.Error = "设置缓存过期时间失败";
+                            var isExpireSuccess = Link(2).Expire(key, tn);
+                            if (!isExpireSuccess)
+                            {
+                                result.Error = "设置缓存过期时间失败";
+                            }
                         }
                     }
                 }
@@ -207,6 +210,7 @@ namespace Integration.Redis.WebApi.Controllers
 
         /// <summary>
         /// 写策略
+        /// 先更新数据库中的数据，再删除缓存中的数据。
         /// </summary>
         /// <param name="id"></param>
         /// <param name="dto"></param>
@@ -217,13 +221,16 @@ namespace Integration.Redis.WebApi.Controllers
             var query = await _dbContext.Members.FirstOrDefaultAsync(c => c.Id == id);
             if (query != null)
             {
-                query.Name=dto.Name;
-                query.Age=dto.Age;
-                query.Birthday=dto.Birthday;
-                query.PhoneNumber=dto.PhoneNumber;
-                await _dbContext.SaveChangesAsync();
-                var re = Delete(id.ToString());
-                return re.ImplementationResults;
+                query.Name = dto.Name;
+                query.Age = dto.Age;
+                query.Birthday = dto.Birthday;
+                query.PhoneNumber = dto.PhoneNumber;
+                var ci = await _dbContext.SaveChangesAsync();
+                if (ci > 0)
+                {
+                    var re = Delete(id.ToString());
+                    return re.ImplementationResults;
+                }
             }
 
             return false;
