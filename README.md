@@ -10,3 +10,5 @@
 ### 后台定时任务：Quartz
 ### 中介者：Mediatr
 ### 缓存：Redis
+### Excel: EPPLUS
+### XLS转xlsx: SPIRE.XLS
