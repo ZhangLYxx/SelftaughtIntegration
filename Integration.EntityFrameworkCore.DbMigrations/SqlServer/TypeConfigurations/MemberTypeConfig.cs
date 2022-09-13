@@ -1,7 +1,6 @@
 ﻿using Entity;
-using Integration.Service.Sql;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Integration.EntityFrameworkCore.DbMigrations.SqlServer.TypeConfigurations
 {

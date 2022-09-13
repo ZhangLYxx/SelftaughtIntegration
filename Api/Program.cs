@@ -1,11 +1,14 @@
+using Autofac.Core;
+using Integration.EntityFrameworkCore.DbMigrations.MySql;
+using Integration.EntityFrameworkCore.DbMigrations.PGSql;
 using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
 using Integration.JWT;
 using Integration.Service.StartUp;
 using Integration.Swagger;
 using Integration.ToolKits;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Integration.Excel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,14 +22,15 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
 builder.Services.AddEndpointsApiExplorer();
 var xmlnames = new string[] { "UCmember.Api.xml", "UCmember.Entity.xml", "UCmember.Dto.xml" };
 builder.Services.AddSwaggerConfiguration(xmlnames, "UCmember");
-builder.Services.AddDbContext<MigrationsDbContext>(option =>
-    option.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")));
+ServicesInitializer.Register(builder.Services, builder.Configuration);
+ServicesInitializerToMySql.Register(builder.Services, builder.Configuration);
+ServicesInitializerToPGSql.Register(builder.Services, builder.Configuration);
 DependencyInjection.AddDependency(builder.Services);
 DependencyInjection.AddPolicy(builder.Services);
 builder.Services.AddIntegrationAuth();
 builder.Services.AddHealthChecks();
 builder.Services.AddHttpContextAccessor();
-
+builder.Services.AddExcelProvider();
 
 var app = builder.Build();
 

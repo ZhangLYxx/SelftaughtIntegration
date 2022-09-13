@@ -31,20 +31,9 @@ namespace Integration.Service.StartUp
         public static void AddDependency(IServiceCollection services)
         {
             services.AddMediatR(typeof(DependencyInjection).GetTypeInfo().Assembly);
-            //services.AddQuartz(typeof(QuartzJob));
-            //services.AddScoped<DbConnection>(_ => new SqlConnection(configuration.GetConnectionString("SqlServerConnection")));
-            //services.AddScoped<IMemberLiked, MemberLikeds>();
             services.AddScoped<IMember, MemberApplication>();
             services.AddTransient<IKafkaService, KafkaService>();
             services.AddScoped<IIdentityParser, JwtIdentityParser>();
-            //services.AddScoped<IWechatClient, WechatClient>();
-            //services.AddScoped<IEventPublisher, InProcessEventPublisher>(); ;
-            //services.AddScoped<IWechatCache, InProcessWechatCache>();
-            //services.AddSingleton<IAuthorizationHandler, RoleHandler>();
-            //services.AddSingleton<ITokenCacheProvider, InProcessCacheProvider>();
-            //services.AddTransient<ITokenCacheFactory, TokenQnCacheFactory>();
-            //services.AddTransient<IFileStorageClient, QnStorageClient>();
-            //services.AddTransient<ITokenCacheFactory, TokenQnCacheFactory>();
         }
 
         /// <summary>

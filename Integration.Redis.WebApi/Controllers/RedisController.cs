@@ -76,7 +76,7 @@ namespace Integration.Redis.WebApi.Controllers
             Seconds,
             Minutes,
             Hours,
-            Day
+            Days
         }
 
         /// <summary>

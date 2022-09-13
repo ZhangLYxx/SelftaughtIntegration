@@ -6,7 +6,7 @@ using Integration.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+builder.Host.ConfigureAppConfiguration((_, config) =>
 {
     config.AddJsonFile("ocelot.json", true, true);
 })
@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen(c =>
         new OpenApiInfo { Title = "Gateway API", Version = "v1", Description = "# gateway api..." });
 });
 
-//不使用consul服务，若使用即加一个Servcices.AddConsul
+//锟斤拷使锟斤拷consul锟斤拷锟斤拷锟斤拷使锟矫硷拷锟斤拷一锟斤拷Servcices.AddConsul
 builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();

@@ -39,7 +39,7 @@ namespace Integration.Quartz.WebApi
                 // 启动
                 await scheduler.Start();
 
-                // 执行 10 秒
+                // 执行
                 await Task.Delay(TimeSpan.FromMinutes(1));
 
                 // say goodbye

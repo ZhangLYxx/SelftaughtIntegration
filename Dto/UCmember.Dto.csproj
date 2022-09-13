@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Member\" />
+    <ProjectReference Include="..\Integration.Excel\Integration.Excel.csproj" />
   </ItemGroup>
 
 </Project>

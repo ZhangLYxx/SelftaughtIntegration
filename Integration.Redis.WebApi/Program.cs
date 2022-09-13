@@ -1,5 +1,4 @@
 using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
-using Integration.Redis;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
