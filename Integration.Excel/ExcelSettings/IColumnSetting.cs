@@ -24,4 +24,8 @@ namespace Integration.Excel.ExcelSettings
         /// </summary>
         PropertyInfo PropertyInfo { get; set; }
     }
+
+    public record sclass{
+        public int MyProperty { get; set; }
+    }
 }

@@ -7,6 +7,8 @@ using Integration.ToolKits;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Self.MySql.Entity;
+using System.Text.RegularExpressions;
+
 namespace UCmember.Api.Controllers
 {
     /// <summary>
@@ -27,17 +29,22 @@ namespace UCmember.Api.Controllers
         }
 
         [HttpGet]
-        public Member[] Login()
+        public string Login()
         {
-            var c = _mySqlContext.Members.Where(c => c.Id == 1).ToArray();
-            return c;
+            var str = "1ed6sfv1sda235fv1as32fg1asd32vfc1sa][;";
+
+            return Regex.Replace(str, "[A-Za-z]", string.Empty);
+
+            //var c = _mySqlContext.Members.Where(c => c.Id == 1).ToArray();
+            //return c;
         }
 
         [HttpGet("[action]")]
         public Member[] Test()
         {
-            var result = _pgdbContext.Members.AsNoTracking().ToArray();
-            
+            Task.Delay(20000).Wait();            
+            //Thread.Sleep(5000);
+            var result = _pgdbContext.Members.AsNoTracking().ToArray();            
             return result;
         }
     }

@@ -26,7 +26,7 @@ config\server.properties
 bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
 启动kafka:
-bin\windows\kafka-server-start.bat config\server.properties
+bin\windows\kafka-server-start.bat .\config\server.properties
 
 查看进程：（ QuorumPeerMain； Jps； Kafka）最起码有这三个才算启动成功
 jps

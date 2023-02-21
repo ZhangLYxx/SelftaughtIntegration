@@ -23,8 +23,6 @@ builder.Services.AddEndpointsApiExplorer();
 var xmlnames = new string[] { "UCmember.Api.xml", "UCmember.Entity.xml", "UCmember.Dto.xml" };
 builder.Services.AddSwaggerConfiguration(xmlnames, "UCmember");
 ServicesInitializer.Register(builder.Services, builder.Configuration);
-ServicesInitializerToMySql.Register(builder.Services, builder.Configuration);
-ServicesInitializerToPGSql.Register(builder.Services, builder.Configuration);
 DependencyInjection.AddDependency(builder.Services);
 DependencyInjection.AddPolicy(builder.Services);
 builder.Services.AddIntegrationAuth();
