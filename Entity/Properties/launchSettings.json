@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "UCmember.Entity": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58304;http://localhost:58306"
+    }
+  }
+}

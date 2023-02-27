@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Entity\UCmember.Entity.csproj" />
     <ProjectReference Include="..\Integration.EntityFrameworkCore.DbMigrations\Integration.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\Integration.Excel\Integration.Excel.csproj" />
+    <ProjectReference Include="..\Integration.GMUtil\Integration.GMUtil.csproj" />
     <ProjectReference Include="..\Integration.JWT\Integration.JWT.csproj" />
     <ProjectReference Include="..\Integration.Kafka\Integration.Kafka.csproj" />
     <ProjectReference Include="..\Integration.Swagger\Integration.Swagger.csproj" />

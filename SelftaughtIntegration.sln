@@ -76,9 +76,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Zip", "Integrat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Excel", "Integration.Excel\Integration.Excel.csproj", "{B4BF0CF2-8345-4071-B6FF-771562FE005F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunCmdService", "RunCmdService\RunCmdService.csproj", "{57735849-81E9-44C1-8371-B8738E468795}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunCmdService", "RunCmdService\RunCmdService.csproj", "{57735849-81E9-44C1-8371-B8738E468795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunKafkaService", "RunKafkaService\RunKafkaService.csproj", "{D5F3AA97-07C6-4577-AC89-2BD6981FC701}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunKafkaService", "RunKafkaService\RunKafkaService.csproj", "{D5F3AA97-07C6-4577-AC89-2BD6981FC701}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.GMUtil", "Integration.GMUtil\Integration.GMUtil.csproj", "{2A0997AA-2477-488E-889E-4F393F6EB551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -194,6 +196,10 @@ Global
 		{D5F3AA97-07C6-4577-AC89-2BD6981FC701}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5F3AA97-07C6-4577-AC89-2BD6981FC701}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5F3AA97-07C6-4577-AC89-2BD6981FC701}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0997AA-2477-488E-889E-4F393F6EB551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0997AA-2477-488E-889E-4F393F6EB551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0997AA-2477-488E-889E-4F393F6EB551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0997AA-2477-488E-889E-4F393F6EB551}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -231,6 +237,7 @@ Global
 		{B4BF0CF2-8345-4071-B6FF-771562FE005F} = {D50AD39C-A98D-4FF5-8250-614AEFF235A7}
 		{57735849-81E9-44C1-8371-B8738E468795} = {D50AD39C-A98D-4FF5-8250-614AEFF235A7}
 		{D5F3AA97-07C6-4577-AC89-2BD6981FC701} = {D50AD39C-A98D-4FF5-8250-614AEFF235A7}
+		{2A0997AA-2477-488E-889E-4F393F6EB551} = {D50AD39C-A98D-4FF5-8250-614AEFF235A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87761CD1-D13B-4F70-8363-A8A0A16A12EF}

@@ -22,6 +22,6 @@ namespace Integration.EntityFrameworkCore.DbMigrations.SqlServer
             {
                 options.UseNpgsql(configuration.GetConnectionString("PGSqlConnection"));
             });
-        }
+        }   
     }
 }

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Integration.Redis": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58310;http://localhost:58311"
+    }
+  }
+}

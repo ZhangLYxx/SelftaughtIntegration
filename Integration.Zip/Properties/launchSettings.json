@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Integration.Zip": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:58316;http://localhost:58317"
+    }
+  }
+}
