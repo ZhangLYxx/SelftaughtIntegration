@@ -9,6 +9,7 @@
 ### ORM框架：EFCore / Dapper 
 ### 接口文档测试工具：Swagger
 ### 消息队列：Kafka(代码简单，难的是配置Kafka以及正常启动zookeeper，kafka；可视化工具用Kafka Eagle（可链接企业微信机器人），后期专门写一个文档放在项目里”kafka eagle.txt“)
+#### kafka配置-》kafka 配置.txt / kafka eagle配置-》kafka eagle配置.txt
 ### 后台定时任务：Quartz
 ### 中介者：Mediatr
 ### 缓存：Redis
