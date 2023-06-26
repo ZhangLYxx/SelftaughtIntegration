@@ -3,7 +3,7 @@
 ## 内容
 ### 开发框架：.NET Core 6.0 
 ### ORM框架：EFCore / Dapper 
-### WebAPI / MVC
+### WebAPI
 ### 接口文档测试工具：Swagger
 ### 权限：Policy
 ### 网关：Ocelot
