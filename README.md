@@ -2,12 +2,12 @@
 
 ## 内容
 ### .NET Core 6.0 
-### ORM框架：EFCore / Dapper 
 ### WebAPI
-### 接口文档测试工具：Swagger
-### 权限：Policy
-### 网关：Ocelot
 ### 开放标准：JWT
+### 网关：Ocelot
+### 权限：Policy
+### ORM框架：EFCore / Dapper 
+### 接口文档测试工具：Swagger
 ### 消息队列：Kafka(代码简单，难的是配置Kafka以及正常启动zookeeper，kafka；可视化工具用Kafka Eagle，后期专门写一个文档放在项目里”kafka eagle.txt“)
 ### 后台定时任务：Quartz
 ### 中介者：Mediatr
