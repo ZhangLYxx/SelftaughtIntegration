@@ -2,8 +2,8 @@
 
 ## 内容
 ### 开发框架：.NET Core 6.0 
-### ORM框架：Entity Framework Core+Dapper 
-### WebAPI MVC
+### ORM框架：EFCore / Dapper 
+### WebAPI / MVC
 ### 接口文档测试工具：Swagger
 ### 权限：Policy
 ### 网关：Ocelot
