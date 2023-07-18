@@ -28,8 +28,8 @@ namespace Integration.GMUtil
                 //var14 = var12.GetCurve();
                 //var4 = var12.G;
                 var5 = new ECDomainParameters(var12.Curve, var12.G, var12.Curve.Order);
-                BigInteger var15 = new BigInteger(1, var0);
-                ECPrivateKeyParameters var16 = new ECPrivateKeyParameters(var15, var5);
+                BigInteger var15 = new(1, var0);
+                ECPrivateKeyParameters var16 = new(var15, var5);
                 return var16;
             }
             else if ("SM2public".Equals(var1, StringComparison.CurrentCultureIgnoreCase))
@@ -46,9 +46,9 @@ namespace Integration.GMUtil
                 else
                 {
                     var var7 = var6.Substring(2, 66);
-                    var var8 = var6.Substring(66);
+                    var var8 = var6[66..];
                     var var9 = var12.Curve.CreatePoint(new BigInteger(var7, 16), new BigInteger(var8, 16));
-                    ECPublicKeyParameters var10 = new ECPublicKeyParameters(var9, var5);
+                    ECPublicKeyParameters var10 = new(var9, var5);
                     return var10;
                 }
             }

@@ -1,14 +1,11 @@
-using Autofac.Core;
-using Integration.EntityFrameworkCore.DbMigrations.MySql;
-using Integration.EntityFrameworkCore.DbMigrations.PGSql;
 using Integration.EntityFrameworkCore.DbMigrations.SqlServer;
+using Integration.Excel;
 using Integration.JWT;
 using Integration.Service.StartUp;
 using Integration.Swagger;
 using Integration.ToolKits;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Integration.Excel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +15,7 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.NullValueHandling = NullValueHandling.Include;
     options.SerializerSettings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
     options.SerializerSettings.Converters.Add(new LongConverter());
-}); ;
+});
 builder.Services.AddEndpointsApiExplorer();
 var xmlnames = new string[] { "UCmember.Api.xml", "UCmember.Entity.xml", "UCmember.Dto.xml" };
 builder.Services.AddSwaggerConfiguration(xmlnames, "UCmember");

@@ -22,8 +22,8 @@ namespace UCmember.Api.Controllers
         /// <summary>
         /// sm4解密，sm2验签
         /// </summary>
-        /// <param name="ciphertext"></param>
-        /// <param name="signtext"></param>
+        /// <param name="ciphertext">密文串</param>
+        /// <param name="signtext">签名串</param>
         /// <returns></returns>
         /// <exception cref="BizException"></exception>
         public bool Decode(string ciphertext, string signtext)
