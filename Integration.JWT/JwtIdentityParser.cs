@@ -14,7 +14,7 @@ namespace Integration.JWT
             {
                 new Claim(ClaimTypes.UserData, JsonConvert.SerializeObject(session))
             };
-            claims.AddRange(session.Roles.Select(role => new Claim("Roles", role)));
+            claims.AddRange(session.Roles.Select(role => new Claim(ClaimTypes.Role, role)));
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConstKeys.SECURITY_SECRET));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -52,7 +52,13 @@ namespace Integration.JWT
                     {
                         return null;
                     }
-                    return JsonConvert.DeserializeObject<UserSession>(userDataClaim.Value);
+                    var isManager = jwtObj.Claims.Any(it => it.Type == ClaimTypes.Role && it.Value == "Manager");
+                    if (isManager)
+                    {
+                        return JsonConvert.DeserializeObject<ManagerSession>(userDataClaim.Value);
+                    }
+                    return JsonConvert.DeserializeObject<MemberSession>(userDataClaim.Value);
+                    
                 }
                 return null;
             }

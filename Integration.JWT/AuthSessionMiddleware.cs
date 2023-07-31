@@ -30,8 +30,16 @@ namespace Integration.JWT
                     var c = claims.FirstOrDefault(c => c.Type == ClaimTypes.UserData);
                     if (c is not null && !string.IsNullOrEmpty(c.Value))
                     {
-                        var session = JsonConvert.DeserializeObject<UserSession>(c.Value);
-                        httpContext.Features.Set(session);
+                        if (httpContext.User.IsInRole("Manager"))
+                        {
+                            var session = JsonConvert.DeserializeObject<ManagerSession>(c.Value);
+                            httpContext.Features.Set(session);
+                        }
+                        else
+                        {
+                            var session = JsonConvert.DeserializeObject<MemberSession>(c.Value);
+                            httpContext.Features.Set(session);
+                        }                        
                     }
 
                 }

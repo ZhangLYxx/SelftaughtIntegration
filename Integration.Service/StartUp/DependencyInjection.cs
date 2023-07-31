@@ -45,19 +45,39 @@ namespace Integration.Service.StartUp
             services.AddAuthorization(options =>
             {
 
-                options.AddPolicy(PermissionConstantKey.UploadPolicy, p =>
+                //options.AddPolicy(PermissionConstantKey.UploadPolicy, p =>
+                //{
+                //    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.UploadPolicy).RequireClaim("Roles", PermissionConstantKey.ManagerPolicy);
+                //});
+
+                //options.AddPolicy(PermissionConstantKey.ExaminePolicy, p =>
+                //{
+                //    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.ExaminePolicy);
+                //});
+
+                //options.AddPolicy(PermissionConstantKey.LikesPolicy, p =>
+                //{
+                //    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.LikesPolicy);
+                //});
+
+                options.AddPolicy("Manager", p =>
                 {
-                    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.UploadPolicy);
+                    p.RequireRole("Manager");
                 });
 
-                options.AddPolicy(PermissionConstantKey.ExaminePolicy, p =>
+                options.AddPolicy("Likes", p =>
                 {
-                    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.ExaminePolicy);
+                    p.RequireRole("Manager").RequireRole("Likes");
                 });
 
-                options.AddPolicy(PermissionConstantKey.LikesPolicy, p =>
+                options.AddPolicy("Upload", p =>
                 {
-                    p.RequireAuthenticatedUser().RequireClaim("Roles", PermissionConstantKey.LikesPolicy);
+                    p.RequireRole("Manager").RequireRole("Upload");
+                });
+
+                options.AddPolicy("Examine", p =>
+                {
+                    p.RequireRole("Manager").RequireRole("Examine");
                 });
             });
 

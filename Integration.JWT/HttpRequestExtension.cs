@@ -18,5 +18,15 @@ namespace Integration.JWT
         {
             return httpContext.Features.Get<UserSession>() ?? new UserSession();
         }
+
+        /// <summary>
+        /// 获取管理员 Session
+        /// </summary>
+        /// <param name="httpContext"></param>
+        /// <returns></returns>
+        public static ManagerSession GetManagerSession(this HttpContext httpContext)
+        {
+            return httpContext.Features.Get<ManagerSession>() ?? new ManagerSession();
+        }
     }
 }

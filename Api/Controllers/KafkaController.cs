@@ -1,4 +1,5 @@
-﻿using Integration.Kafka;
+﻿using Integration.JWT;
+using Integration.Kafka;
 using Microsoft.AspNetCore.Mvc;
 using UCmember.Dto.Kafka;
 

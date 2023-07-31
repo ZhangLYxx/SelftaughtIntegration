@@ -12,6 +12,11 @@ namespace Integration.Service.StartUp
     public static class PermissionConstantKey
     {
         /// <summary>
+        /// 管理员
+        /// </summary>
+        public const string ManagerPolicy = "manager";
+
+        /// <summary>
         /// 审核
         /// </summary>
         public const string ExaminePolicy = "examine";

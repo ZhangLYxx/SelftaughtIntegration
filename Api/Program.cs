@@ -52,6 +52,9 @@ app.UseAuthorization();
 app.UseAuthSession();
 
 app.MapHealthChecks("/health");
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();

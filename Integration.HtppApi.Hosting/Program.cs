@@ -21,7 +21,6 @@ builder.Services.AddSwaggerGen(c =>
         new OpenApiInfo { Title = "Gateway API", Version = "v1", Description = "# gateway api..." });
 });
 
-//��ʹ��consul������ʹ�ü���һ��Servcices.AddConsul
 builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();

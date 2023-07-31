@@ -8,7 +8,7 @@ namespace Integration.Service.StartUp
 {
     public class RequestUtility
     {
-        public const string TokenHeader = "Token";
+        public const string TokenHeader = "Bearer";
 
 
         public const string GatewayAuthHeader = "GATEWAY-AUTH";

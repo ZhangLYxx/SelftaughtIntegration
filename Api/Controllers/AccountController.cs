@@ -29,23 +29,17 @@ namespace UCmember.Api.Controllers
         }
 
         [HttpGet]
-        public string Login()
+        public string Login([FromServices] IIdentityParser identityParser)
         {
-            var str = "1ed6sfv1sda235fv1as32fg1asd32vfc1sa][;";
-
-            return Regex.Replace(str, "[A-Za-z]", string.Empty);
-
-            //var c = _mySqlContext.Members.Where(c => c.Id == 1).ToArray();
-            //return c;
+            var token = identityParser.Parse(new ManagerSession { Roles = new[] { "Manager" }, UserId = 101, UserName = "na" });
+            return $"Bearer {token}";
         }
 
         [HttpGet("[action]")]
-        public Member[] Test()
+        [ManagerAuthorize]
+        public ManagerSession Test()
         {
-            Task.Delay(20000).Wait();            
-            //Thread.Sleep(5000);
-            var result = _pgdbContext.Members.AsNoTracking().ToArray();            
-            return result;
+            return HttpContext.GetManagerSession();
         }
     }
 }

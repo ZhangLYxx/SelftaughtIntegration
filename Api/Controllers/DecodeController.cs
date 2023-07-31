@@ -26,7 +26,7 @@ namespace UCmember.Api.Controllers
         /// <param name="signtext">签名串</param>
         /// <returns></returns>
         /// <exception cref="BizException"></exception>
-        public bool Decode(string ciphertext, string signtext)
+        private bool Decode(string ciphertext, string signtext)
         {
             var result = string.Empty;
             try

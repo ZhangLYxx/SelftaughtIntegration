@@ -9,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace Integration.Excel
 {
-    public class WriteIamge
+    public class WriteImage
     {
         /// <summary>
         /// 插入图片
         /// </summary>
         /// <param name="worksheet"></param>
         /// <param name="imageBytes"></param>
-        /// <param name="rowNum"></param>
+        /// <param name="rowNum"></param>照片
         /// <param name="columnNum"></param>
         /// <param name="autofit"></param>
         public static void InsertImage(ExcelWorksheet worksheet, byte[] imageBytes, int rowNum, int columnNum, bool autofit)
         {
             using (var image = Image.FromStream(new MemoryStream(imageBytes)))
-            {
-                var picture = worksheet.Drawings.AddPicture($"image_{DateTime.Now.Ticks}", new MemoryStream(imageBytes), ePictureType.Ico);
+            {                
+                var picture = worksheet.Drawings.AddPicture($"image_{DateTime.Now.Ticks}", new FileInfo($"image_{DateTime.Now.Ticks}"));
                 var cell = worksheet.Cells[rowNum, columnNum];
                 int cellColumnWidthInPix = GetWidthInPixels(cell);
                 int cellRowHeightInPix = GetHeightInPixels(cell);

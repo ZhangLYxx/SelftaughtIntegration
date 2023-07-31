@@ -36,4 +36,10 @@ namespace Integration.JWT
         /// </summary>
         public string OpenId { get; set; }
     }
+
+    public class ManagerSession : UserSession
+    {
+
+    }
+
 }
